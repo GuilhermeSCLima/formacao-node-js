@@ -1,0 +1,58 @@
+<%- include ("../../partials/header.ejs") %>
+
+  <body>
+    <%- include ("../../partials/navbar.ejs") %>
+      <div class="container">
+        <hr>
+        <h2>Artigos</h2>
+        <a class="btn btn-success" href="/admin/articles/new">Criar novo artigo</a>
+        <hr>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Slug</th>
+              <th>Category</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% articles.forEach(art=> { %>
+              <tr>
+                <td>
+                  <%= art.id %>
+                </td>
+                <td>
+                  <%= art.title %>
+                </td>
+                <td>
+                  <%= art.slug %>
+                </td>
+                <td>
+                  <%= art.category.title %>
+                </td>
+                <td>
+                  <a href="/admin/articles/edit/<%= art.id %>" class="btn btn-warning">Editar</a>
+                  <form method="post" action="/articles/delete" onsubmit="confirmDelect(event, this)">
+                    <input type="hidden" name="id" value=" <%= art.id %>  ">
+                    <button class="btn btn-danger">Deletar</button>
+                  </form>
+                </td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+      </div>
+  </body>
+  <script>
+    function confirmDelect(event, form) {
+      event.preventDefault()
+      let decision = confirm("Você quer deletar este artigo?")
+
+      if (decision) {
+        form.submit()
+      }
+    }
+  </script>
+  <%- include ("../../partials/footer.ejs") %>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sicília Hospital</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/home/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Conselho administrativo
+          </button>
+        </div>
+        <div class="collapse" id="collapseExample">
+          <div class="card-body">
+
+            <table>
+              <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+              </tr>
+              <% hierarquia.conselho_administrativo.forEach(name => { %>
+                <tr>
+                  <td> <%= name.split(" ")[0] %> </td>
+                  <td> <%= name.split(" ")[1] %> </td>
+                </tr>
+              <% }) %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+      <script src="/js/bootstrap/bootstrap.min.js"></script>
+      <script src="/js/home/script.js"></script>
+  </body>
+</html>

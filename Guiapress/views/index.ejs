@@ -1,0 +1,38 @@
+<%- include ("partials/header.ejs")%>
+
+  <body>
+    <%- include ("partials/homenavbar") %>
+      <div class="container">
+        <hr>
+        <div class="jumbotron">
+          <h1 class="display-4">Bem vindo!</h1>
+          <p class="lead">Este é um simples blog chamado Guiapress.</p>
+          <hr class="my-4">
+          <p>Blog utilizado para melhoria de conhecimento, caso necessite de mais ajuda faça uma pergunta no
+            nosso site de perguntas e respostas <a href="http://147.182.169.220" target="_blank"
+              rel="noopener noreferrer">GuiaPerguntas</a>.</p>
+        </div>
+
+        <% articles.forEach(art=> { %>
+
+          <div class="card-header">
+            <h2>
+              <%= art.title %>
+            </h2>
+          </div>
+          <div class="card-body">
+            <a href="/<%= art.slug %> " class="btn btn-success">Ler artigo</a>
+          </div>
+          <br>
+          <% }) %>
+
+          <div class="row">
+            <div class="col col-12">
+              <a style="float:right;" href="/articles/page/2">Next >>>></a>
+            </div>
+            <hr>
+          </div>
+          <hr>
+      </div>
+  </body>
+  <%- include ("partials/footer.ejs") %>
